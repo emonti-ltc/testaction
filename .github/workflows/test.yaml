@@ -1,0 +1,19 @@
+name: Display README Content
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  display-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Display README.md content
+      run: |
+        echo "=== README.md Content ==="
+        cat README.md
+        echo "=== End of README.md ==="
